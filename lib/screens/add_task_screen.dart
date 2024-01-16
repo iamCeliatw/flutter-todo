@@ -5,16 +5,19 @@ import '../providers/task_provider.dart';
 
 class AddTaskScreen extends StatelessWidget {
   final TextEditingController _taskController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
 
   AddTaskScreen({super.key});
 
   void _addTask(BuildContext context) {
     final taskText = _taskController.text;
+    final taskDescription = _descriptionController.text;
     if (taskText.isNotEmpty) {
       Provider.of<TaskProvider>(context, listen: false).addTask(
         Task(
           id: DateTime.now().toString(),
           title: taskText,
+          description: taskDescription,
           isDone: false,
         ),
       );
@@ -35,6 +38,10 @@ class AddTaskScreen extends StatelessWidget {
             TextField(
               controller: _taskController,
               decoration: const InputDecoration(labelText: 'Task'),
+            ),
+            TextField(
+              controller: _descriptionController,
+              decoration: const InputDecoration(labelText: 'Description'),
             ),
             const SizedBox(height: 20),
             ElevatedButton(

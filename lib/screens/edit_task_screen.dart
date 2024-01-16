@@ -15,7 +15,11 @@ class EditTaskScreen extends StatelessWidget {
     if (taskText.isNotEmpty) {
       Provider.of<TaskProvider>(context, listen: false).updateTask(
         task.id,
-        Task(id: task.id, title: taskText, isDone: task.isDone),
+        Task(
+            id: task.id,
+            title: taskText,
+            description: task.description,
+            isDone: task.isDone),
       );
       Navigator.of(context).pop();
     }

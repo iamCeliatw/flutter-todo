@@ -35,6 +35,7 @@ class HomeScreen extends StatelessWidget {
                   Task(
                     id: task.id,
                     title: task.title,
+                    description: task.description,
                     isDone: !task.isDone, // 反轉完成狀態
                   ),
                 );
@@ -56,6 +57,7 @@ class HomeScreen extends StatelessWidget {
               },
               child: TaskTile(
                 title: task.title,
+                description: task.description,
                 isDone: task.isDone,
                 onChanged: (value) {
                   // Implement task completion logic

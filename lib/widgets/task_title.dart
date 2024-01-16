@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class TaskTile extends StatelessWidget {
   final String title;
+  final String description;
   final bool isDone;
   final void Function(bool?)? onChanged;
 
   const TaskTile({
     Key? key,
     required this.title,
+    required this.description,
     required this.isDone,
     required this.onChanged,
   }) : super(key: key);
@@ -16,6 +18,7 @@ class TaskTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(title),
+      subtitle: Text(description),
       leading: Checkbox(
         value: isDone,
         onChanged: onChanged,
@@ -23,3 +26,4 @@ class TaskTile extends StatelessWidget {
     );
   }
 }
+//create a function when you click the checkbox, it will change the value of isDone to true or false
